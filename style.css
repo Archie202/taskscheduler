@@ -1,0 +1,89 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="date"],
+select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#taskLists {
+  display: flex;
+  justify-content: space-between;
+}
+
+#taskList,
+#completedTasks {
+  flex-basis: 48%;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.low-priority {
+  color: green;
+}
+
+.medium-priority {
+  color: orange;
+}
+
+.high-priority {
+  color: red;
+}

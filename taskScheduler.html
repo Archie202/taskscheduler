@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Scheduler</title>
+  <link rel="stylesheet" type="text/css" href="schedulerstyle.css">
+  <style>
+    /* Add a nice background color to the website */
+    body {
+      background-color: #f5f5f5;
+    }
+
+    /* CSS for the logout button */
+    .logout-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #f44336;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .logout-button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Task Scheduler</h1>
+  <button class="logout-button" onclick="redirectToIndex()">Logout</button>
+  <div id="taskContainer">
+    <input type="text" id="taskInput" class="inputField" placeholder="Enter a task">
+    <textarea id="descriptionInput" class="textareaField" placeholder="Enter a description"></textarea>
+    <input type="datetime-local" id="startTimeInput" class="inputField">
+    <input type="datetime-local" id="deadlineInput" class="inputField">
+    <select id="priorityInput" class="inputField">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button id="addButton">Add Task</button>
+  </div>
+  <h2>Task List</h2>
+  <ul id="taskList"></ul>
+
+  <h2>Completed task</h2>
+  <ul id="doneList"></ul>
+
+  <script src="taskScheduler.js"></script>
+  <script>
+    // Make the website responsive for mobile, tablet, and desktop
+    // Add event listener to window resize
+    window.addEventListener('resize', function() {
+      const addButton = document.getElementById('addButton');
+      if (window.innerWidth <= 768) {
+        addButton.style.width = '100%';
+      } else {
+        addButton.style.width = 'auto';
+      }
+    });
+
+    // Add event listener to mark as done button
+    document.addEventListener('click', function(event) {
+      if (event.target.classList.contains('markDoneButton')) {
+        const taskItem = event.target.parentNode;
+        taskItem.classList.add('done');
+        moveTaskToDoneList(taskItem);
+      }
+    });
+
+    // Function to move task from Task List to Done List
+    function moveTaskToDoneList(taskItem) {
+      const doneList = document.getElementById('doneList');
+      const clonedTaskItem = taskItem.cloneNode(true); // Clone the task item
+      taskItem.parentNode.removeChild(taskItem);
+      doneList.appendChild(clonedTaskItem);
+    }
+
+    // Function for sign in
+    function signIn() {
+      // Add sign-in functionality here
+    }
+
+    // Function for sign up
+    function signUp() {
+      // Add sign-up functionality here
+    }
+  </script>
+</body>
+</html>
